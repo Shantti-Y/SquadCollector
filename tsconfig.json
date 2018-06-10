@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "es2015",
+    "target": "es6",
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": false,
+    "strict": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "~/": ["./"],
+      "~/assets/*": [ "./assets/*"],
+      "~/components/*": ["./components/*"],
+      "~/domains/*": ["./domains/*"],
+      "~/middleware/*": ["./middleware/*"],
+      "~/pages/*": ["./pages/*"],
+      "~/plugins/*": ["./plugins/*"],
+      "~/static/*": ["./static/*"],
+      "~/store/*": ["./store/*"]
+    }
+  }
+}
