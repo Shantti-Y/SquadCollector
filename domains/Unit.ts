@@ -29,32 +29,34 @@ export class Mech implements Unit {
     this.category = category;
     this.color = color;
   }
+}
 
-  attachWeapon(weapon :Weapon){
-    this.weapons.push(weapon);
-  }
+export const MechMethods = {
+  attachWeapon(mech, weapon) {
+    mech.weapons.push(weapon);
+  },
 
-  detachWeapon(weapon :Weapon){
-    const idx = this.findWeaponIndex(weapon.id)
+  detachWeapon(mech, weapon) {
+    const idx = mech.findWeaponIndex(weapon.id)
     if (idx != undefined) {
-      this.weapons.splice(idx, 1)
+      mech.weapons.splice(idx, 1)
     }
-  }
+  },
 
-  changeSpecial(special? :Special){
-    this.special = special
-  }
+  changeSpecial(mech, special?) {
+    mech.special = special
+  },
 
-  showCategory(this :Mech){
-    return `${this.category} class`
-  }
+  showCategory(mech) {
+    return `${mech.category} class`
+  },
 
-  hasLessThanTwoWeapons() {
-    return this.weapons.length <= 2
-  }
+  hasLessThanTwoWeapons(mech) {
+    return mech.weapons.length < 2
+  },
 
-  private findWeaponIndex(id: number) {
-    return this.weapons.findIndex(weapon => weapon.id === id)
+  findWeaponIndex(mech, id) {
+    return mech.weapons.findIndex(weapon => weapon.id === id)
   }
 }
 

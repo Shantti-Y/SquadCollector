@@ -8,25 +8,28 @@
   </div>
 </template>
 
-<script>
-import Mechs from "~/components/Wiki/Mechs/Mechs.vue"
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'nuxt-class-component'
 
-  export default {
+  import Mechs from "./Mechs.vue"
+
+  const AppProp = Vue.extend({
     props: {
       squad: Object
-    },
-    data() {
-      return {
-        isOpen: false
-      }
-    },
-    methods: {
-      toggleSquadMenu(){
-        this.isOpen = !this.isOpen
-      }
-    },
+    }
+  })
+
+  @Component({
     components: {
       Mechs
+    }
+  })
+  export default class Squad extends AppProp{
+    isOpen :boolean = false
+
+    toggleSquadMenu(){
+      this.isOpen = !this.isOpen
     }
   }
 </script>

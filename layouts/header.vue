@@ -12,13 +12,12 @@
     </el-menu>
 </template>
 
+<script lang="ts">
+  import Vue from 'vue'
 
-<script>
-  export default {
-    methods: {
-      onClickHandle(){
-        this.$emit('header-clicked')
-      }
+  export default class Header extends Vue {
+    onClickHandle(){
+      this.$emit('header-clicked')
     }
   }
 </script>

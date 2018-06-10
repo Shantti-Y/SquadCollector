@@ -11,24 +11,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'nuxt-class-component'
+
   // TODO: Rename the file 'default' to 'main_layout'
   import HeaderNav from './header.vue'
   import SideNav from './sidebar.vue'
-  export default {
-    data() {
-      return {
-        isSidebarOpen: false
-      }
-    },
-    methods: {
-      toggleSidebar(){
-        this.isSidebarOpen = !this.isSidebarOpen
-      }
-    },
+
+  @Component({
     components: {
       HeaderNav,
       SideNav
+    }
+  })
+  export default class Layout extends Vue{
+    isSidebarOpen :boolean = false
+
+    toggleSidebar(){
+      this.isSidebarOpen = !this.isSidebarOpen
     }
   }
 </script>

@@ -7,17 +7,21 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
   import Vue from 'vue'
+  import Component from 'nuxt-class-component'
 
   import Squad from "~/components/Wiki/Mechs/Squad.vue"
 
-  export default {
-    computed: {
-      squads() { return this.$store.state.wiki.squads }
-    },
+  @Component({
     components: {
       Squad
     }
+  })
+  export default class MechsPage extends Vue {
+    get squads() {
+      return this.$store.state.wiki.squads
+    }
+    
   }
 </script>

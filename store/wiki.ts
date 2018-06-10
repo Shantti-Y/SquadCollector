@@ -1,13 +1,13 @@
 import Vuex from 'vuex'
 import * as Mechs from '~/static/fixtures/Mechs'
-import { Squad } from '~/domains/Squad'
+import { Squad, SquadMethods } from '~/domains/Squad'
 import { Mech } from '~/domains/Unit'
 import * as Pilots from '~/static/fixtures/Pilots'
 
 const rift_walkers = new Squad('Rift Walkers', true)
-rift_walkers.initializeMechs([Mechs.combat, Mechs.cannon, Mechs.artilliery])
+SquadMethods.initializeMechs(rift_walkers, [Mechs.combat, Mechs.cannon, Mechs.artilliery])
 const rusting_hulks = new Squad('Rusting Hulks', true)
-rusting_hulks.initializeMechs([Mechs.jet, Mechs.rocket, Mechs.pulse])
+SquadMethods.initializeMechs(rusting_hulks, [Mechs.jet, Mechs.rocket, Mechs.pulse])
 
 const squads = [
   rift_walkers,

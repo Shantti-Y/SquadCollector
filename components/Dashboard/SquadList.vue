@@ -8,14 +8,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'nuxt-class-component'
+
   import Squad from './Squad.vue'
-  export default {
+
+  const AppProps = Vue.extend({
     props: {
       squads: Array
-    },
+    }
+  })
+
+  @Component({
     components: {
       Squad
     }
+  })
+  export default class SquadList extends AppProps {
   }
 </script>

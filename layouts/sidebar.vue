@@ -36,15 +36,17 @@
     </el-row>
   </div>
 </template>
-<script>
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  const AppProp = Vue.extend({
     props: {
       isOpen: Boolean
-    },
-    methods: {
-      onClickHandle(){
-        this.$emit('header-clicked')
-      }
+    }
+  })
+  export default class Sidebar extends AppProp{
+    onClickHandle(){
+      this.$emit('header-clicked')
     }
   }
 </script>

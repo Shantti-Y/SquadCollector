@@ -25,10 +25,13 @@
       Categories
     }
   })
-
   export default class CreateSquadPage extends Vue {
-    squad :Object = this.$store.state.create_squad.squad;
-    mech_collection :Array<Object> = this.$store.state.create_squad.mech_collection;
+    get squad() {
+      return this.$store.state.create_squad.squad
+    }
+    get mech_collection() {
+      return this.$store.state.create_squad.mech_collection
+    }
 
     created() {
       this.$store.dispatch('initializeSquad')

@@ -8,15 +8,24 @@
   </div>
 </template>
 
-<script>
-import Mech from "~/components/Wiki/Mechs/Mech.vue"
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'nuxt-class-component'
+
+  import Mech from "./Mech.vue"
+
+  const AppProps = Vue.extend({
     props: {
       mechs: Array,
       isOpen: Boolean
-    },
+    }
+  })
+
+  @Component({
     components: {
       Mech
     }
+  })
+  export default class Mechs extends AppProps{
   }
 </script>

@@ -12,11 +12,11 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data(){
-      return {
-        paths: [
+<script lang="ts">
+  import Vue from 'vue'
+
+  export default class WikiPage extends Vue{
+    paths = [
           {
             name: "Mechs",
             url: "mechs"
@@ -26,7 +26,5 @@
             url: "pilots"
           }
         ]
-      }
-    }
   }
 </script>

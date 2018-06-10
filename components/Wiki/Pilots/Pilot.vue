@@ -9,10 +9,15 @@
   </div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  const AppProp = Vue.extend({
     props: {
       pilot: Object
-    },
+    }
+  })
+
+  export default class Pilot extends AppProp{
   }
 </script>

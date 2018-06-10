@@ -11,37 +11,40 @@ export class Squad {
     this.name = name
     this.original = original
   }
+}
 
-  attachMech(mech :Mech){
-    this.mechs.push(mech)
-  }
+export const SquadMethods = {
+  attachMech(squad, mech) {
+    squad.mechs.push(mech)
+  },
 
-  detachMech(mech :Mech){
-    const idx = this.findMechIndex(mech.id)
-    if(idx != undefined){
-      this.mechs.splice(idx, 1)
+  detachMech(squad, mech) {
+    const idx = this.findMechIndex(squad, mech.id)
+    if (idx != undefined) {
+      squad.mechs.splice(idx, 1)
     }
-  }
+  },
 
-  changePilot(pilot :Pilot){
-    this.pilot = pilot
-  }
+  changePilot(squad, pilot) {
+    squad.pilot = pilot
+  },
 
-  initializeMechs (mechs: Array<Mech>) {
+  initializeMechs(squad, mechs) {
     mechs.forEach(mech => {
-      this.attachMech(mech)
+      this.attachMech(squad, mech)
     })
-  }
+  },
 
-  isAssignable () {
-    return this.mechs.length == 3 && this.pilot != undefined
-  }
+  isAssignable(squad) {
+    // && squad.pilot != undefined
+    return squad.mechs.length == 3 && squad.name != ""
+  },
 
-  hasLessThanThreeMechs () {
-    return this.mechs.length <= 3
-  }
+  hasLessThanThreeMechs(squad) {
+    return squad.mechs.length < 3
+  },
 
-  private findMechIndex(id :number){
-    return this.mechs.findIndex(mech => mech.id === id)
+  findMechIndex(squad, id) {
+    return squad.mechs.findIndex(mech => mech.id === id)
   }
 }

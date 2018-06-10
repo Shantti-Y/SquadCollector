@@ -7,7 +7,7 @@
       <img :src="require(`~/assets/images/${selected_mech.thumbnail}`)" :alt="selected_mech.name">
     </div>
     <router-link to="/dashboard">
-      <button @click="insertYourSquad">Submit</button>
+      <button @click="insertYourSquad()">Submit</button>
     </router-link>
   </div>
 </template>

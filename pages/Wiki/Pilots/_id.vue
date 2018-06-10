@@ -1,26 +1,17 @@
 <template>
   <div>
-    {{ pilot.name }}
-    <img :src="require(`~/assets/images/${pilot.thumbnail}`)" :alt="pilot.name">
-    {{ pilot.grade }}
-    <div v-for="ability in pilot.abilities" :key="ability.id">
-      {{ ability.name }}
-      {{ ability.description }}
-    </div>
   </div>
 </template>
-<script>
+<script lang="ts">
   import Vue from 'vue'
 
-  export default {
-    data () {
-      return {
-        pilot: {}
-      }
-    },
+  export default class PilotIDPage extends Vue {
+    pilot = {}
+    
     created () {
-      const id = this.$route.params.id
-      this.pilot = this.$store.getters.findPilotById(id)
+      console.log(this)
+      //const id = this.$route.params.id
+      //this.pilot = this.$store.getters.findMechById(id)
     }
   }
 </script>

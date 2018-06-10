@@ -8,25 +8,29 @@
   </div>
 </template>
 
-<script>
-import Pilots from "~/components/Wiki/Pilots/Pilots.vue"
+<script lang="ts">
+  import Vue from 'vue'
+  import Component from 'nuxt-class-component'
 
-  export default {
+  import Pilots from "./Pilots.vue"
+
+  const AppProp = Vue.extend({
     props: {
       group: Object
-    },
-    data() {
-      return {
-        isOpen: false
-      }
-    },
-    methods: {
-      toggleSquadMenu(){
-        this.isOpen = !this.isOpen
-      }
-    },
+    }
+  })
+
+  @Component({
     components: {
       Pilots
     }
+  })
+  export default class Group extends AppProp {
+    isOpen :boolean = false
+    
+    toggleSquadMenu(){
+      this.isOpen = !this.isOpen
+    }
+    
   }
 </script>

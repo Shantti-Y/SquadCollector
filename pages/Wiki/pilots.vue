@@ -7,17 +7,20 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
   import Vue from 'vue'
+  import Component from 'nuxt-class-component'
 
   import Group from "~/components/Wiki/Pilots/Group.vue"
 
-  export default {
-    computed: {
-      groups() { return this.$store.state.wiki.groups }
-    },
+  @Component({
     components: {
       Group
+    }
+  })
+  export default class PilotsPage extends Vue {
+    get groups() {
+      return this.$store.state.wiki.groups
     }
   }
 </script>

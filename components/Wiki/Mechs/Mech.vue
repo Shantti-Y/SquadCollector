@@ -10,11 +10,15 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  const AppProps = Vue.extend({
     props: {
       mech: Object
-    },
+    }
+  })
+
+  export default class Mech extends AppProps{
   }
 </script>

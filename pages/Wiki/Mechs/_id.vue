@@ -19,18 +19,15 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
   import Vue from 'vue'
 
-  export default {
-    data () {
-      return {
-        mech: {}
-      }
-    },
+  export default class MechIDPage extends Vue {
+    mech = {}
+
     created () {
-      const id = this.$route.params.id
-      this.mech = this.$store.getters.findMechById(id)
+      //const id = this.$route.params.id
+      //this.mech = this.$store.getters.findMechById(id)
     }
   }
 </script>

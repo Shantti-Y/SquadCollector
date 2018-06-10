@@ -7,7 +7,7 @@ import * as Mechs from '~/static/fixtures/Mechs'
 import * as Pilots from '~/static/fixtures/Pilots'
 
 import { Mech } from '~/domains/Unit';
-import { Squad } from '~/domains/Squad';
+import { Squad, SquadMethods } from '~/domains/Squad';
 
 const sortMechsByClass = (category) => {
   const keys = Object.keys(Mechs).filter(mech => Mechs[mech].category == category)
@@ -42,17 +42,17 @@ const create_squads = {
     ]
   },
   actions: {
-    addMechToSquad ({ commit, state }, mech :Mech){
-      if (state.squad.hasThreeMechs()){
+    addMechToSquad ({ commit, state }, mech){
+      if (SquadMethods.hasLessThanThreeMechs(state.squad)){
         commit('addMechToSquad', mech)
       }else{
         console.log('Return Error Message by commiting mutation')
       }
     },
-    reduceMechFromSquad(context, mech: Mech) {
+    reduceMechFromSquad(context, mech) {
       context.commit('reduceMechFromSquad', mech)
     },
-    updateMechName(context, value :string) {
+    updateMechName(context, value) {
       context.commit('updateMechName', value)
     },
     initializeSquad(context){
@@ -60,13 +60,13 @@ const create_squads = {
     }
   },
   mutations: {
-    addMechToSquad(state, mech :Mech) {
-      state.squad.attachMech(mech)
+    addMechToSquad(state, mech) {
+      SquadMethods.attachMech(state.squad, mech)
     },
-    reduceMechFromSquad(state, mech :Mech) {
-      state.squad.detachMech(mech)
+    reduceMechFromSquad(state, mech) {
+      SquadMethods.detachMech(state.squad, mech)
     },
-    updateMechName(state, value :string) {
+    updateMechName(state, value) {
       state.squad.name = value
     },
     initializeSquad(state) {

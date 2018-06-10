@@ -14,24 +14,27 @@ export class Pilot {
     this.thumbnail = thumbnail;
     this.grade = grade;
   }
+}
 
-  attachAbility(ability :Ability){
-    this.abilities.push(ability);
-  }
+export const PilotMethods = {
 
-  detachAblity(ability :Ability){
-    const idx = this.findAbilityIndex(ability.id)
+  attachAbility(pilot, ability) {
+    pilot.abilities.push(ability);
+  },
+
+  detachAblity(pilot, ability) {
+    const idx = pilot.findAbilityIndex(ability.id)
     if (idx != undefined) {
-      this.abilities.splice(idx, 1)
+      pilot.abilities.splice(idx, 1)
     }
-  }
+  },
 
   // Depends on grade
-  hasLessThanThreeAbilities() {
-    return this.abilities.length <= 3
-  }
+  hasLessThanThreeAbilities(pilot) {
+    return pilot.abilities.length < 3
+  },
 
-  private findAbilityIndex(id: number) {
-    return this.abilities.findIndex(ability => ability.id === id)
+  findAbilityIndex(pilot, id) {
+    return pilot.abilities.findIndex(ability => ability.id === id)
   }
 }

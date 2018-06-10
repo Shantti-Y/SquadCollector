@@ -18,11 +18,15 @@
   </div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  const AppProps = Vue.extend({
     props: {
       squad: Object
     }
+  })
+  export default class Squad extends AppProps {
   }  
 </script>
 

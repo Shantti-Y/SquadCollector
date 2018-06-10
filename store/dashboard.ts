@@ -1,14 +1,14 @@
 import Vuex from 'vuex'
 
-import { Squad } from '~/domains/Squad'
+import { Squad, SquadMethods } from '~/domains/Squad'
 
 const dashboard = {
   state: {
-    squads: new Array<Squad>()
+    squads: []
   },
   actions: {
     submitNewSquad(context, squad){
-      if (squad.isAssignable()){
+      if (SquadMethods.isAssignable(squad)){
         context.commit('submitNewSquad', squad)
       }else{
         console.log('Return Error Message by commiting mutation')

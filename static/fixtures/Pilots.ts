@@ -1,4 +1,4 @@
-import { Pilot } from '~/domains/Pilot';
+import { Pilot, PilotMethods } from '~/domains/Pilot';
 import { Grade } from '~/domains/constants';
 import Ability from '~/static/fixtures/Abilities';
 
@@ -8,7 +8,7 @@ const ralph_karlsson = new Pilot(
   'pilots/ralph_karlsson.png',
   Grade.Timetraveler
 );
-ralph_karlsson.attachAbility(Ability.experienced);
+PilotMethods.attachAbility(ralph_karlsson, Ability.experienced);
 
 const harold_schmidt = new Pilot(
   2,
@@ -16,7 +16,7 @@ const harold_schmidt = new Pilot(
   'pilots/harold_schmidt.png',
   Grade.Timetraveler
 );
-harold_schmidt.attachAbility(Ability.frenzied_repair);
+PilotMethods.attachAbility(harold_schmidt, Ability.frenzied_repair);
 
 const abe_isamu = new Pilot(
   3,
@@ -24,7 +24,7 @@ const abe_isamu = new Pilot(
   'pilots/abe_isamu.png',
   Grade.Timetraveler
 );
-abe_isamu.attachAbility(Ability.armored);
+PilotMethods.attachAbility(abe_isamu, Ability.armored);
 
 const bethany_jones = new Pilot(
   4,
@@ -32,7 +32,7 @@ const bethany_jones = new Pilot(
   'pilots/bethany_jones.png',
   Grade.Timetraveler
 );
-bethany_jones.attachAbility(Ability.starting_shield);
+PilotMethods.attachAbility(bethany_jones, Ability.starting_shield);
 
 const henry_kwan = new Pilot(
   5,
@@ -40,6 +40,6 @@ const henry_kwan = new Pilot(
   'pilots/henry_kwan.png',
   Grade.Timetraveler
 );
-henry_kwan.attachAbility(Ability.maneuverable);
+PilotMethods.attachAbility(henry_kwan, Ability.maneuverable);
 
 export { ralph_karlsson, harold_schmidt, abe_isamu, bethany_jones, henry_kwan }

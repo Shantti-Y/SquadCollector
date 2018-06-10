@@ -1,5 +1,5 @@
 import { Category, Color } from '~/domains/constants'
-import { Mech } from '~/domains/Unit';
+import { Mech, MechMethods } from '~/domains/Unit';
 import Weapon from '~/static/fixtures/Weapons';
 import Special from '~/static/fixtures/Specials';
 
@@ -11,7 +11,7 @@ const combat = new Mech(
   "mechs/combat_mech.png",
   Category.Prime, Color.Green
 );
-combat.attachWeapon(Weapon.titan_fist);
+MechMethods.attachWeapon(combat, Weapon.titan_fist);
 
 const cannon = new Mech(
   2,
@@ -20,7 +20,7 @@ const cannon = new Mech(
   "mechs/cannon_mech.png",
   Category.Brute, Color.Green
 );
-cannon.attachWeapon(Weapon.taurus_cannon);
+MechMethods.attachWeapon(cannon, Weapon.taurus_cannon);
 
 const artilliery = new Mech(
   3,
@@ -29,7 +29,7 @@ const artilliery = new Mech(
   "mechs/artilliery_mech.png",
   Category.Ranged, Color.Green
 );
-artilliery.attachWeapon(Weapon.artemis_artillery);
+MechMethods.attachWeapon(artilliery, Weapon.artemis_artillery);
 
 // Rusting Hulks
 const jet = new Mech(
@@ -39,8 +39,8 @@ const jet = new Mech(
   "mechs/jet_mech.png",
   Category.Brute, Color.Orange
 );
-jet.attachWeapon(Weapon.aerial_bombs);
-jet.changeSpecial(Special.flying);
+MechMethods.attachWeapon(jet, Weapon.aerial_bombs);
+MechMethods.changeSpecial(jet, Special.flying);
 
 const rocket = new Mech(
   5,
@@ -49,8 +49,8 @@ const rocket = new Mech(
   "mechs/rocket_mech.png",
   Category.Ranged, Color.Orange
 );
-rocket.attachWeapon(Weapon.rocket_artillery);
-rocket.attachWeapon(Weapon.storm_generator);
+MechMethods.attachWeapon(rocket, Weapon.rocket_artillery);
+MechMethods.attachWeapon(rocket, Weapon.storm_generator);
 
 const pulse = new Mech(
   6,
@@ -59,7 +59,7 @@ const pulse = new Mech(
   "mechs/pulse_mech.png",
   Category.Science, Color.Orange
 );
-pulse.attachWeapon(Weapon.repulse);
+MechMethods.attachWeapon(pulse, Weapon.repulse);
 
 export {
   combat, cannon, artilliery,
